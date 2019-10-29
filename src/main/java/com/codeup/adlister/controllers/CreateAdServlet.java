@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Tag;
 import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
@@ -24,8 +25,10 @@ public class CreateAdServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
+        Tag tag = (Tag) request.getSession().getAttribute("tag");
         Ad ad = new Ad(
             user.getId(),
+            tag.getId(),
             request.getParameter("title"),
             request.getParameter("description")
         );

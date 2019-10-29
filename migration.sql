@@ -17,18 +17,14 @@ CREATE TABLE categories (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     title VARCHAR(240) NOT NULL,
     PRIMARY KEY (id)
-
 );
 
 CREATE TABLE tags (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    category_id INT UNSIGNED NOT NULL,
-    title VARCHAR(240) NOT NULL,
+    category_id INT UNSIGNED,
+    title VARCHAR(240),
     PRIMARY KEY (id),
     FOREIGN KEY (category_id) REFERENCES categories(id)
-                 ON DELETE CASCADE
-
-
 );
 
 CREATE TABLE ads (
@@ -41,9 +37,8 @@ CREATE TABLE ads (
     latitude VARCHAR (255) NULL,
     longitude VARCHAR (255) NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (tag_id) REFERENCES tags (id)
-        ON DELETE CASCADE
 );
 
 CREATE TABLE reviews (
@@ -52,7 +47,4 @@ CREATE TABLE reviews (
     description TEXT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (ad_id) REFERENCES ads(id)
-        ON DELETE CASCADE
 );
-
-

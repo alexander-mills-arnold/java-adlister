@@ -1,10 +1,12 @@
 package com.codeup.adlister.models;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class Ad {
     private long id;
     private long userId;
+    private java.sql.Date postDate;
 
 
     private long tagId;
@@ -14,23 +16,28 @@ public class Ad {
 
     private Date posted_date;
 
-    public Ad(long id, long userId, String title, String description) {
+    public Ad(long id, long userId, long tagId, String title, String description, java.sql.Date posted_date) {
         this.id = id;
         this.userId = userId;
+        this.tagId = tagId;
         this.title = title;
         this.description = description;
+        this.postDate = posted_date;
     }
 
     public Ad(long userId, String title, String description) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        java.sql.Date date = new Date(System.currentTimeMillis());
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.postDate = date;
     }
-    public Ad(long userId, long tag_id, String title, String description, java.util.Date posted_date) {
-        this.userId = userId;
-        this.title = title;
-        this.description = description;
-    }
+//    public Ad(long userId, long tag_id, String title, String description, java.util.Date posted_date) {
+//        this.userId = userId;
+//        this.title = title;
+//        this.description = description;
+//    }
 
     public long getId() {
         return id;
@@ -70,11 +77,16 @@ public class Ad {
     public void setPosted_date(Date posted_date) {
         this.posted_date = posted_date;
     }
-    public long getTagId() {
-        return tagId;
+//    public long getTagId() {
+//        return tagId;
+//    }
+
+//    public void setTagId(long tagId) {
+//        this.tagId = tagId;
+//    }
+
+    public java.sql.Date getPostDate() {
+        return postDate;
     }
 
-    public void setTagId(long tagId) {
-        this.tagId = tagId;
-    }
 }

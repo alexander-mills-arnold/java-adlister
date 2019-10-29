@@ -28,7 +28,6 @@ public class CreateAdServlet extends HttpServlet {
         Tag tag = (Tag) request.getSession().getAttribute("tag");
         Ad ad = new Ad(
             user.getId(),
-            tag.getId(),
             request.getParameter("title"),
             request.getParameter("description")
         );

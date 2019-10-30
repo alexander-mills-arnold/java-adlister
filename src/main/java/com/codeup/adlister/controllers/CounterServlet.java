@@ -21,7 +21,7 @@ public class CounterServlet extends HttpServlet {
         List<Ad> ads = DaoFactory.getAdsDao().all();
         List<Ad> searchedAds = new ArrayList<>();
         for(Ad ad : ads){
-            if(ad.getTitle().toLowerCase().contains(userSearch.toLowerCase())){
+            if(((ad.getTitle().toLowerCase().contains(" " + userSearch.toLowerCase() + " ")) || (ad.getTitle().toLowerCase().indexOf(userSearch.toLowerCase()) == 0) || (ad.getTitle().toLowerCase().endsWith(" " + userSearch.toLowerCase()))) || ((ad.getDescription().toLowerCase().contains(" " + userSearch.toLowerCase() + " ")) || (ad.getDescription().toLowerCase().indexOf(userSearch.toLowerCase()) == 0) || (ad.getDescription().toLowerCase().endsWith(" " + userSearch.toLowerCase())))){
                 searchedAds.add(ad);
             }
         }

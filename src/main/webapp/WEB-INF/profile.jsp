@@ -38,6 +38,7 @@
                     <h5 class="card-title"> (Ad title insert goes here) </h5>
                     <p class="card-text"> (Description of the ad here) </p>
                     <a href="/info?selectedad=horse" class="btn btn-primary"> Click to ad link! </a>
+<%--                    link to info and query string selectedad=adtitle--%>
                 </div>
             </div>
 
@@ -65,7 +66,7 @@
 
     <c:forEach var="ad" items="${userAds}">
         <div class="col-md-6">
-            <h2>${ad.title}</h2>
+            <h2><a href="/info?selectedad=${ad.id}">${ad.title}</a></h2>
             <p>${ad.description}</p>
             <p>${ad.postDate}</p>
         </div>

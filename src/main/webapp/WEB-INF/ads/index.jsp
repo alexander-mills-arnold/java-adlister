@@ -11,9 +11,9 @@
 </head>
 <body>
 <%--//========= DYNAMIC NAVIGATION ======//--%>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
 <div class="container">
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
     <h1>Here Are all the ads!</h1>
 <%--//========= AD GENERATOR ============//--%>
         <div id="ad-card">
@@ -31,5 +31,7 @@
 <%--//========= AD GENERATOR END ========//--%>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="../js/ads-index.js"></script>
 </body>
 </html>

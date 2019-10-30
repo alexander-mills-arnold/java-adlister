@@ -1,4 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String failedUsername = (String) request.getSession().getAttribute("failedusername");
+    System.out.println(failedUsername);
+    String failedEmail = (String) request.getSession().getAttribute("failedemail");
+    System.out.println(failedEmail);
+%>
 <html>
 <head>
     <jsp:include page="partials/head.jsp">
@@ -30,4 +36,16 @@
         </form>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    const failedUsername = "<%= failedUsername %>";
+    const failedEmail = "<%= failedEmail %>";
+    if(failedUsername !== null){
+        $("#username").val(failedUsername);
+    }
+
+    if(failedEmail !== null){
+        $("#email").val(failedEmail);
+    }
+</script>
 </html>

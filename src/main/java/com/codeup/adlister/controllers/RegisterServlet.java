@@ -15,6 +15,8 @@ import java.util.List;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String failedusername = (String) request.getAttribute("failedusername");
+        String failedemail = (String) request.getAttribute("failedemail");
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
@@ -33,6 +35,8 @@ public class RegisterServlet extends HttpServlet {
             || (searchedUser != null);
 
         if (inputHasErrors) {
+            request.getSession().setAttribute("failedusername", username);
+            request.getSession().setAttribute("failedemail", email);
             response.sendRedirect("/register");
             return;
         }

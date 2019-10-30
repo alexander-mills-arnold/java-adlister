@@ -11,6 +11,7 @@
         border-radius: 45px 20px;
         padding: 15px;
 
+
         /*margin: .5em;*/
         /*background: white;*/
         /*width: 250px;*/
@@ -19,7 +20,7 @@
         /*display: flex;*/
         /*flex-direction: column;*/
         /*align-items: center;*/
-        justify-content: space-around;
+        /*justify-content: space-around;*/
     }
 
     img {

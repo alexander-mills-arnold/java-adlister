@@ -16,16 +16,18 @@
 <div class="container">
     <h1>Here Are all the ads!</h1>
 <%--//========= AD GENERATOR ============//--%>
+        <div id="ad-card">
     <c:forEach var="ad" items="${ads}">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="placeholder">
-            <div class="card-body <%--col-md-6--%>">
-                <h3 class="card-title">${ad.title}</h3>
-                <p class="card-text">${ad.description}</p>
-                <a href="#" class="btn btn-primary"> Click to ad link! </a>
+            <div class="card col-md-6">
+                <img src="..." class="card-img-top" alt="placeholder">
+                <div class="card-body">
+                    <h3 class="card-title">${ad.title}</h3>
+                    <p class="card-text">${ad.description}</p>
+                    <a href="#" class="btn btn-primary"> Click to ad link! </a>
+                </div>
             </div>
-    </div>
     </c:forEach>
+        </div>
 <%--//========= AD GENERATOR END ========//--%>
 </div>
 

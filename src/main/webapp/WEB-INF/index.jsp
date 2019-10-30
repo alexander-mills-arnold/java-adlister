@@ -11,13 +11,13 @@
 <div class="container">
     <h1>Welcome to the Adlister!</h1>
     <h1>CATEGORIES</h1>
-
-    <c:forEach var="categor" items="${searchResults}">
-        <h3>
-            <c:out value="${product.name}"/>
-            <small><c:out value="${product.price}"/></small>
-        </h3>
+    <c:forEach var="category" items="${categories}">
+        <div class="col-md-6">
+            <h2>${category.title}</h2>
+        </div>
     </c:forEach>
+
+
 </div>
 </body>
 </html>

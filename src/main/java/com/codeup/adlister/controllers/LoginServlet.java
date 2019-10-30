@@ -13,11 +13,13 @@ import java.io.IOException;
 
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
+    String returnTo;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
             response.sendRedirect("/profile");
             return;
         }
+        returnTo = (String) request.getSession().getAttribute("returnTo");
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
@@ -33,9 +35,13 @@ public class LoginServlet extends HttpServlet {
 
         boolean validAttempt = Password.check(password, user.getPassword());
 
-        if (validAttempt) {
+        if (validAttempt && returnTo == null) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
+        }else if(validAttempt && returnTo != null){
+            request.getSession().setAttribute("user", user);
+            request.getSession().removeAttribute("returnTo");
+            response.sendRedirect(returnTo);
         } else {
             response.sendRedirect("/login");
         }

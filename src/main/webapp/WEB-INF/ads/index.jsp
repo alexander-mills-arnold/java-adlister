@@ -7,13 +7,8 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
 <div class="container">
-    <form action="/ads" method="post">
-        <input type="text" id="search" name="search">
-        <button>Search</button>
-    </form>
+
     <h1>Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">

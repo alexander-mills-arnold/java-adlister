@@ -40,11 +40,11 @@
 <script type="text/javascript">
     const failedUsername = "<%= failedUsername %>";
     const failedEmail = "<%= failedEmail %>";
-    if(failedUsername !== null){
+    if(failedUsername !== "null"){
         $("#username").val(failedUsername);
     }
 
-    if(failedEmail !== null){
+    if(failedEmail !== "null"){
         $("#email").val(failedEmail);
     }
 </script>

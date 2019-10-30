@@ -37,7 +37,7 @@
                 <div class="card-body">
                     <h5 class="card-title"> (Ad title insert goes here) </h5>
                     <p class="card-text"> (Description of the ad here) </p>
-                    <a href="#" class="btn btn-primary"> Click to ad link! </a>
+                    <a href="/info?selectedad=horse" class="btn btn-primary"> Click to ad link! </a>
                 </div>
             </div>
 

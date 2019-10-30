@@ -13,8 +13,9 @@
     <title>Info</title>
 </head>
 <body>
-    <h1><c:out value="${selectedAd.title}" /></h1>
-    <p><c:out value="${selectedAd.description}" /></p>
-    <p><c:out value="${selectedAd.postDate}" /></p>
+    <h1><c:out value="${selectedad.title}" /></h1>
+    <p><c:out value="${selectedad.description}" /></p>
+    <p><c:out value="${selectedad.postDate}" /></p>
+    <p><c:out value="${adCreator.username}" /></p>
 </body>
 </html>

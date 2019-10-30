@@ -75,4 +75,17 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    @Override
+    public Ad findByTitle(String title) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE title = ? LIMIT 1");
+            stmt.setString(1, title);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs).get(0);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ad with title: " + title, e);
+        }
+    }
 }

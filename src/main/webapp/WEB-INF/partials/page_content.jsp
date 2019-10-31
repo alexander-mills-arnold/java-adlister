@@ -1,4 +1,8 @@
 <style>
+    body {
+        background: darkgrey;
+    }
+
 
     #ad-card{
         display: flex;
@@ -10,7 +14,7 @@
         border: 2px solid grey;
         border-radius: 45px 20px;
         padding: 15px;
-
+        background: lightslategray;
 
         /*margin: .5em;*/
         /*background: white;*/

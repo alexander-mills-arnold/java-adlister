@@ -1,5 +1,11 @@
+<%@ page import="com.codeup.adlister.models.Ad" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    List<Ad> ads = (List<Ad>) request.getAttribute("ads");
+    int count = ads.size();
+%>
 <html>
 <head>
 <%--//========= MAIN TITLE ==============//--%>
@@ -34,6 +40,13 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script src="../js/ads-index.js"></script>
+<script>
+    const count = "<%= count %>";
+    $("#random-ad").click(function () {
+        const randomAdIndex = Math.floor(Math.random() * count) + 1;
+        const newUrl = "http://localhost:8080/count?search=" + randomAdIndex;
+        document.location.href = newUrl;
+    });
+</script>
 </body>
 </html>

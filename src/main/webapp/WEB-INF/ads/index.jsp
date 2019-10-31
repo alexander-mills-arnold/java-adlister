@@ -23,11 +23,12 @@
                 <div class="card-body">
                     <h3 class="card-title">${ad.title}</h3>
                     <p class="card-text">${ad.description}</p>
-                    <a href="#" class="btn btn-primary"> Click to ad link! </a>
+                    <a href="/info?selectedad=${ad.id}" class="btn btn-primary"> Click to ad link! </a>
                 </div>
             </div>
     </c:forEach>
         </div>
+
 <%--//========= AD GENERATOR END ========//--%>
 </div>
 

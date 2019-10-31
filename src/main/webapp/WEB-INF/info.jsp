@@ -11,6 +11,7 @@
 <head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <title>Info</title>
+    <jsp:include page="/WEB-INF/partials/page_content.jsp" />
 </head>
 <body>
     <h1><c:out value="${thisad.title}" /></h1>

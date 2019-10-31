@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-    String failedUsername = (String) request.getSession().getAttribute("failedusername");
+    String failedUsername = (String) request.getSession().getAttribute("wrongUsername");
     System.out.println(failedUsername);
-    String errorCodes = (String) request.getSession().getAttribute("errorCodes");
+    String errorCodes = (String) request.getSession().getAttribute("profileErrors");
     System.out.println(errorCodes);
 %>
 <html>

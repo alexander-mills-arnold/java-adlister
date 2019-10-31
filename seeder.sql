@@ -1,12 +1,5 @@
 USE adlister_db;
 
-INSERT INTO users (username, email, password)
-VALUES ('admin', 'admin@admin.com', 'password');
-
-INSERT INTO categories (title) VALUE ('test');
-
-INSERT INTO tags (category_id, title) VALUES (1, 'other');
-
 INSERT INTO ads (user_id, tag_id, title, description, posted_date)
 VALUES (1, 1, 'Holy Grail', 'Decorated cup with historical significance', '2019-10-20'),
        (1, 1, 'The Kracken', 'Looking for a loving home', '2019-10-20'),

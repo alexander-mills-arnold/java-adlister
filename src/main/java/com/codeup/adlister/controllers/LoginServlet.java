@@ -31,8 +31,8 @@ public class LoginServlet extends HttpServlet {
 
         if (user == null) {
             errorCodes += "1";
-            request.getSession().setAttribute("failedusername", username);
-            request.getSession().setAttribute("errorCodes", errorCodes);
+            request.getSession().setAttribute("wrongUsername", username);
+            request.getSession().setAttribute("profileErrors", errorCodes);
             response.sendRedirect("/login");
             return;
         }
@@ -48,8 +48,8 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect(returnTo);
         } else {
             errorCodes += 2;
-            request.getSession().setAttribute("errorCodes", errorCodes);
-            request.getSession().setAttribute("failedusername", username);
+            request.getSession().setAttribute("profileErrors", errorCodes);
+            request.getSession().setAttribute("wrongUsername", username);
             response.sendRedirect("/login");
         }
     }

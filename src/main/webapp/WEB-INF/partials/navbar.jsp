@@ -8,6 +8,7 @@
         <ul class="nav navbar-nav navbar-right">
             <c:if test="${sessionScope.user != null}">
                 <li><a href="/ads/create">Create an Ad</a></li>
+                <li><a href="/profile">View Profile</a></li>
             </c:if>
             <c:choose>
                 <c:when test="${sessionScope.user == null}">

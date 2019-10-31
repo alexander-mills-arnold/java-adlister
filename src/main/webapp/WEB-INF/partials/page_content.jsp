@@ -3,13 +3,13 @@
         background: darkgrey;
     }
 
-
     #info {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
+
 
     #ad-card{
         display: flex;
@@ -37,6 +37,7 @@
     .ad-description{
         border: 2px solid grey;
         padding: 10px;
+
     }
 
     img {
@@ -45,3 +46,4 @@
     }
 
 </style>
+

@@ -10,7 +10,6 @@
         align-items: center;
     }
 
-
     #ad-card{
         display: flex;
         justify-content: space-evenly;

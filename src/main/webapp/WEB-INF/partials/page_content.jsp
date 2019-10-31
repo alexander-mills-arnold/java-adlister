@@ -3,6 +3,7 @@
         background: darkgrey;
     }
 
+
     #info {
         display: flex;
         flex-direction: column;
@@ -31,6 +32,11 @@
         /*flex-direction: column;*/
         /*align-items: center;*/
         /*justify-content: space-around;*/
+    }
+
+    .ad-description{
+        border: 2px solid grey;
+        padding: 10px;
     }
 
     img {

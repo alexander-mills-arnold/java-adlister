@@ -14,9 +14,16 @@
     <jsp:include page="/WEB-INF/partials/page_content.jsp" />
 </head>
 <body>
-    <h1><c:out value="${thisad.title}" /></h1>
-    <p><c:out value="${thisad.description}" /></p>
-    <p><c:out value="${thisad.postDate}" /></p>
-    <p><c:out value="${adCreator.username}" /></p>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+    <div id="info">
+        <p>Posted on: <c:out value="${thisad.postDate}" /></p>
+        <p>by: <c:out value="${adCreator.username}" /></p>
+        <h1><c:out value="${thisad.title}" /></h1>
+        <p class="ad-description"><c:out value="${thisad.description}" /></p>
+
+
+    </div>
 </body>
 </html>
+

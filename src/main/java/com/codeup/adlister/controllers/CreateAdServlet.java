@@ -4,7 +4,7 @@ import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.Tag;
 import com.codeup.adlister.models.User;
-
+import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,11 +26,15 @@ public class CreateAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
         Tag tag = (Tag) request.getSession().getAttribute("tag");
+        Ad adDate = (Ad) request.getSession().getAttribute("ad");
         Ad ad = new Ad(
             user.getId(),
+            tag.getId(),
             request.getParameter("title"),
-            request.getParameter("description")
+            request.getParameter("description"),
+            adDate.getPosted_date()
         );
+        System.out.println(adDate.getPosted_date());
         DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
     }

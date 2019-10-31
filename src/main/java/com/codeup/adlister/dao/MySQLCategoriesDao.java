@@ -27,24 +27,58 @@ public class MySQLCategoriesDao implements Categories {
     public List<Category> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM categories");
+            stmt = connection.prepareStatement("SELECT categories.title as category, categories.id as id, tags.title as subcategory FROM categories JOIN tags ON tags.category_id = categories.id;");
             ResultSet rs = stmt.executeQuery();
-            System.out.println(stmt);
+            System.out.println(rs);
             return createCategories(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error with categories joining subcategories.", e);
+        }
+    }
+
+
+    public List<Category> headings() {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT categories.id as id,categories.title as heading FROM categories;");
+            ResultSet rs = stmt.executeQuery();
+            System.out.println(rs);
+            return createHeadings(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all Categories.", e);
         }
     }
 
+
+    public Category extractHeading(ResultSet rs) {
+        try {
+            return new Category(
+                    rs.getLong("id"),
+                    rs.getString("heading")
+            );
+        } catch (SQLException e) {
+            throw new RuntimeException("Error extracting all Headings.", e);
+        }
+    }
     public Category extractCategory(ResultSet rs) {
         try {
             return new Category(
                     rs.getLong("id"),
-                    rs.getString("title")
+                    rs.getString("category"),
+                    rs.getString("subcategory")
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all Categories.", e);
+            throw new RuntimeException("Error extracting all Categories.", e);
         }
+    }
+
+
+    private List<Category> createHeadings(ResultSet rs) throws SQLException {
+        List<Category> headings = new ArrayList<>();
+        while (rs.next()) {
+            headings.add(extractHeading(rs));
+        }
+        return headings;
     }
 
 

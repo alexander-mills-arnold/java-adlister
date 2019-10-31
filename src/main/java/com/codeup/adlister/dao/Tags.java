@@ -1,9 +1,10 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Category;
+import com.codeup.adlister.models.Tag;
 
 import java.util.List;
 
 public interface Tags {
-    List<Category> all();
+    List<Tag> all();
 }

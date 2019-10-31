@@ -4,28 +4,45 @@ package com.codeup.adlister.models;
 
 public class Category {
     private long id;
+    private String subcategory;
+    private String category;
 
-    public Category(long id, String title) {
+    public Category(long id, String category, String subcategory) {
         this.id = id;
-        this.title = title;
+        this.category = category;
+        this.subcategory = subcategory;
     }
 
-    private String title;
+
+    public Category(long id, String category) {
+        this.id = id;
+        this.category = category;
+    }
+
 
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getCategory() {
+        return category;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCategory(String category) {
+        this.category = category;
     }
+
+    public String getSubcategory() {
+        return subcategory;
+    }
+
+    public void setSubcategory(String subcategory) {
+        this.subcategory = subcategory;
+    }
+
 
 }

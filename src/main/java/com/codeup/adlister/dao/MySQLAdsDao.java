@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Tag;
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -44,7 +45,7 @@ public class MySQLAdsDao implements Ads {
             String insertQuery = "INSERT INTO ads(user_id, tag_id, title, description, posted_date) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
-            stmt.setLong(2, 1);
+            stmt.setLong(2, ad.getTagId());
             stmt.setString(3, ad.getTitle());
             stmt.setString(4, ad.getDescription());
             stmt.setDate(5, ad.getPostDate());
@@ -56,6 +57,13 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
+
+
+
+//    @Override
+//    public Long getTag(Tag tag) {
+//        return null;
+//    }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
@@ -75,4 +83,6 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+
 }

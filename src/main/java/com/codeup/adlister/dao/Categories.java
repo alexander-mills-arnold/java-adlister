@@ -9,4 +9,5 @@ public interface Categories {
 
 
     List<Category> all();
+    List<Category> headings();
 }

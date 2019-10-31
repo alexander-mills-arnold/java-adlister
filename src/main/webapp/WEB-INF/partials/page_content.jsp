@@ -33,6 +33,12 @@
         /*justify-content: space-around;*/
     }
 
+    .ad-description{
+        border: 2px solid grey;
+        padding: 10px;
+
+    }
+
     img {
         width: 150px;
         height: 150px;
@@ -40,16 +46,3 @@
 
 </style>
 
-
-
-<%--   =========  CARD VIEW    =========  --%>
-
-<%--<div class="card" style="width: 18rem;">--%>
-<%--    <img src="https://media.familyminded.com/3b/0d/3b0d80ed89394877a47899a513ca04bd.jpeg" class="card-img-top" alt="placeholder">--%>
-<%--    <div class="card-body">--%>
-<%--        <h5 class="card-title"> (Ad title insert goes here) </h5>--%>
-<%--        <p class="card-text"> (Description of the ad here) </p>--%>
-<%--        <a href="#" class="btn btn-primary"> Click to ad link! </a>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<%--</div>--%>

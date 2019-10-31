@@ -3,6 +3,22 @@ package com.codeup.adlister.models;
 
 
 public class Category {
+    private long id;
+    private String subcategory;
+    private String category;
+
+    public Category(long id, String category, String subcategory) {
+        this.id = id;
+        this.category = category;
+        this.subcategory = subcategory;
+    }
+
+
+    public Category(long id, String category) {
+        this.id = id;
+        this.category = category;
+    }
+
 
     public long getId() {
         return id;
@@ -12,14 +28,21 @@ public class Category {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getCategory() {
+        return category;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    private long id;
-    private String title;
+    public String getSubcategory() {
+        return subcategory;
+    }
+
+    public void setSubcategory(String subcategory) {
+        this.subcategory = subcategory;
+    }
+
+
 }

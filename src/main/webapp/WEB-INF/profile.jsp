@@ -42,3 +42,39 @@
 
 </body>
 </html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> test </title>
+    <script src="jquery-1.6.2.js"></script>
+    <script>
+        /*
+          $(document).ready(function(){
+            $(".btn :button").click(function(){
+              $(this).remove();
+          });
+        */
+        $(".btn :button").live("click", function(){
+            $(this).remove();
+        });
+
+        function add() {
+            // $(".btn").append("<button> new one </button>");
+            $("<button> new one </button>").insertAfter(".btn");
+        };
+    </script>
+</head>
+<body>
+<div class="btn">
+    <button> test </button>
+</div>
+<br /><br />
+<div class="adding">
+    <button onclick='add()'> add </button>
+</div>
+</body>
+</html>

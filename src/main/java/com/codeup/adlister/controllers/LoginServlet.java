@@ -13,30 +13,43 @@ import java.io.IOException;
 
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
+    String returnTo;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
             response.sendRedirect("/profile");
             return;
         }
+        returnTo = (String) request.getSession().getAttribute("returnTo");
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String errorCodes = "";
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
         if (user == null) {
+            errorCodes += "1";
+            request.getSession().setAttribute("failedusername", username);
+            request.getSession().setAttribute("errorCodes", errorCodes);
             response.sendRedirect("/login");
             return;
         }
 
         boolean validAttempt = Password.check(password, user.getPassword());
 
-        if (validAttempt) {
+        if (validAttempt && returnTo == null) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
+        }else if(validAttempt && returnTo != null){
+            request.getSession().setAttribute("user", user);
+            request.getSession().removeAttribute("returnTo");
+            response.sendRedirect(returnTo);
         } else {
+            errorCodes += 2;
+            request.getSession().setAttribute("errorCodes", errorCodes);
+            request.getSession().setAttribute("failedusername", username);
             response.sendRedirect("/login");
         }
     }

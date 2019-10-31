@@ -45,8 +45,6 @@
     const failedEmail = "<%= failedEmail %>";
     const errorCodes = "<%= errorCodes %>";
 
-    console.log(errorCodes);
-
     if(errorCodes !== ""){
         if(errorCodes.indexOf("1") !== -1){
             $("#username-div").append("<p style='color: red'>You must enter a username</p>");

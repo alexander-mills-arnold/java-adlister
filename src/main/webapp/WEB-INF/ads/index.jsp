@@ -15,6 +15,7 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <h1>Here Are all the ads!</h1>
+    <button id="random-ad">Random</button>
 <%--//========= AD GENERATOR ============//--%>
         <div id="ad-card">
     <c:forEach var="ad" items="${ads}">

@@ -19,10 +19,20 @@
             </c:choose>
             <li>    <form action="/ads" method="post">
                 <input type="text" id="search" name="search">
-                <button>Search</button>
+                <button id="search-btn">Search</button>
             </form></li>
         </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
+<script>
+    const searchInput = document.getElementById("search");
+    const searchButton = document.getElementById("search-btn");
+    searchButton.addEventListener("click", function () {
+        const searchInput = searchInput.value();
+        if(searchInput !== null){
+            const newUrl = "http://localhost:8080/count?search=" + searchInput;
+            document.location.href = newUrl;
+        }
+    });
+</script>

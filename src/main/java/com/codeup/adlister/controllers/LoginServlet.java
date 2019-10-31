@@ -26,9 +26,13 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String errorCodes = "";
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
         if (user == null) {
+            errorCodes += "1";
+            request.getSession().setAttribute("failedusername", username);
+            request.getSession().setAttribute("errorCodes", errorCodes);
             response.sendRedirect("/login");
             return;
         }
@@ -43,6 +47,9 @@ public class LoginServlet extends HttpServlet {
             request.getSession().removeAttribute("returnTo");
             response.sendRedirect(returnTo);
         } else {
+            errorCodes += 2;
+            request.getSession().setAttribute("errorCodes", errorCodes);
+            request.getSession().setAttribute("failedusername", username);
             response.sendRedirect("/login");
         }
     }

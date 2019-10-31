@@ -8,6 +8,7 @@
     </jsp:include>
 <%--//========= STYLING   ===============//--%>
         <jsp:include page="/WEB-INF/partials/page_content.jsp" />
+
 </head>
 <body>
 <%--//========= DYNAMIC NAVIGATION ======//--%>
@@ -18,63 +19,44 @@
 
 <%--//========= AD GENERATOR ============//--%>
         <div id="ad-card">
-            <c:forEach var="ad" items="${ads}">
+            <c:forEach var="ad" items="${userAds}">
                 <div class="card col-md-6">
                     <img src="..." class="card-img-top" alt="placeholder">
                     <div class="card-body">
-                        <h3 class="card-title">${ad.title}</h3>
+                        <a href="/info?selectedad=${ad.id}"><h3 class="card-title">${ad.title}</h3></a>
                         <p class="card-text">${ad.description}</p>
-                        <a href="#" class="btn btn-primary"> Click to ad link! </a>
+                        <%--EDIT AND DELETE--%>
+                        <div class="edit-delete">
+                            <button onclick='add()'><a href="/edit"> Edit / Delete </a></button>
+                        </div>
                     </div>
                 </div>
             </c:forEach>
         </div>
 <%--//========= AD GENERATOR END ========//--%>
-    </div>
+    </div> <%---------container end--%>
 
-    <c:forEach var="ad" items="${userAds}">
-        <div class="col-md-6">
-            <h2><a href="/info?selectedad=${ad.id}">${ad.title}</a></h2>
-            <p>${ad.description}</p>
-            <p>${ad.postDate}</p>
-        </div>
-    </c:forEach>
+
+
+<%--//========= SCRIPTING   ===============//--%>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+
+    $("button").on("click", function(){
+        $(this).remove();
+    });
+    $(".btn :button").live("click", function(){
+        $(this).remove();
+    });
+
+    function add() {
+        // $(".btn").append("<button> new one </button>");
+        $("<button> new one </button>").insertAfter(".btn");
+    };
+</script>
 
 </body>
 </html>
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title> test </title>
-    <script src="jquery-1.6.2.js"></script>
-    <script>
-        /*
-          $(document).ready(function(){
-            $(".btn :button").click(function(){
-              $(this).remove();
-          });
-        */
-        $(".btn :button").live("click", function(){
-            $(this).remove();
-        });
-
-        function add() {
-            // $(".btn").append("<button> new one </button>");
-            $("<button> new one </button>").insertAfter(".btn");
-        };
-    </script>
-</head>
-<body>
-<div class="btn">
-    <button> test </button>
-</div>
-<br /><br />
-<div class="adding">
-    <button onclick='add()'> add </button>
-</div>
-</body>
-</html>

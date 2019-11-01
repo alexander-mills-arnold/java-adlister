@@ -17,6 +17,7 @@ import java.util.List;
 @WebServlet(name = "EditServlet", urlPatterns = "/edit")
 public class EditServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().getAttribute("edit");
         response.sendRedirect("/edit-page");
 //        User user = (User) request.getSession().getAttribute("user");
 //        Tag tag = (Tag) request.getSession().getAttribute("tag");
@@ -35,6 +36,11 @@ public class EditServlet extends HttpServlet {
 //            response.sendRedirect("/login");
 //            return;
 //        }
+        String adIdString = request.getParameter("selectedad");
+        long adId = Long.parseLong(adIdString);
+        Ad editAd = DaoFactory.getAdsDao().findById(adId);
+
+        request.setAttribute("ad", editAd);
 
         try {
             request.getRequestDispatcher("/WEB-INF/edit-page.jsp").forward(request, response);

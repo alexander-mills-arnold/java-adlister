@@ -1,7 +1,8 @@
 
 <style>
+
     body {
-        background: darkgrey;
+        background: #AAB9BA;
     }
 
     #info {
@@ -18,10 +19,11 @@
     }
 
     .card{
+        width: 50%;
         border: 2px solid grey;
         border-radius: 45px 20px;
         padding: 15px;
-        background: lightslategray;
+        background: #C0BDAE;
 
         /*margin: .5em;*/
         /*background: white;*/
@@ -40,6 +42,9 @@
 
     }
 
+    .title{
+        /*color:*/
+    }
 
     img {
 

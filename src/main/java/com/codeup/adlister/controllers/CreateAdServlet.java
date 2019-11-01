@@ -39,19 +39,39 @@ public class CreateAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
         String tag = request.getParameter("tag_id");
-        System.out.println("tag = " + tag);
-        long tagId = Long.parseLong(tag);
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+        String errorCodes = "";
+        long tagId = 0;
+        if(tag != null){
+            tagId = Long.parseLong(tag);
+        }
+        boolean inputHasErrors = title.isEmpty()
+                || description.isEmpty()
+                || tagId == 0;
+        if(inputHasErrors){
+            if(title.isEmpty()){
+                errorCodes += 1;
+            }
+            if(description.isEmpty()){
+                errorCodes += 2;
+            }
+            if(tagId == 0){
+                errorCodes += 3;
+            }
+
+            request.getSession().setAttribute("createErrors", errorCodes);
+            request.getSession().setAttribute("failedTitle", title);
+            request.getSession().setAttribute("failedDescription", description);
+            response.sendRedirect("/ads/create");
+            return;
+        }
         Ad ad = new Ad(
             user.getId(),
             tagId,
             request.getParameter("title"),
             request.getParameter("description")
         );
-        System.out.println(ad.getUserId());
-        System.out.println(ad.getDescription());
-        System.out.println(ad.getTitle());
-        System.out.println(ad.getPostDate());
-        System.out.println(ad.getTagId());
         DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
     }

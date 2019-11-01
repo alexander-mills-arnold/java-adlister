@@ -47,11 +47,6 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("title"),
             request.getParameter("description")
         );
-        System.out.println(ad.getUserId());
-        System.out.println(ad.getDescription());
-        System.out.println(ad.getTitle());
-        System.out.println(ad.getPostDate());
-        System.out.println(ad.getTagId());
         DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
     }

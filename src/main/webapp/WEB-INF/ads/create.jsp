@@ -34,27 +34,27 @@
             </div>
             <div id="community-tag-div" class="form-group">
                 <c:forEach var="tag" items="${communityTags}">
-                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"><label for="${tag.id}">${tag.title}</label>
+                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"> <label for="${tag.id}">${tag.title}</label>
                 </c:forEach>
             </div>
             <div id="services-tag-div" class="form-group">
                 <c:forEach var="tag" items="${servicesTags}">
-                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"><label for="${tag.id}">${tag.title}</label>
+                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"> <label for="${tag.id}">${tag.title}</label>
                 </c:forEach>
             </div>
             <div id="housing-tag-div" class="form-group">
                 <c:forEach var="tag" items="${housingTags}">
-                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"><label for="${tag.id}">${tag.title}</label>
+                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"> <label for="${tag.id}">${tag.title}</label>
                 </c:forEach>
             </div>
             <div id="for-sale-tag-div" class="form-group">
                 <c:forEach var="tag" items="${forSaleTags}">
-                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"><label for="${tag.id}">${tag.title}</label>
+                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"> <label for="${tag.id}">${tag.title}</label>
                 </c:forEach>
             </div>
             <div id="jobs-tag-div" class="form-group">
                 <c:forEach var="tag" items="${jobsTags}">
-                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"><label for="${tag.id}">${tag.title}</label>
+                    <input type="radio" value="${tag.id}" name="tag_id" id="${tag.id}"> <label for="${tag.id}">${tag.title}</label>
                 </c:forEach>
             </div>
             <input type="submit" class="btn btn-block btn-primary">

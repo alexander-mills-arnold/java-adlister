@@ -5,6 +5,8 @@
 <%
     List<Ad> ads = (List<Ad>) request.getAttribute("ads");
     int count = ads.size();
+    int randomAd = (int) (Math.random() * count);
+    long randomAdId = ads.get(randomAd).getId();
 %>
 <html>
 <head>
@@ -41,11 +43,9 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script>
-    const count = "<%= count %>";
+    const randomAdId = "<%= randomAdId %>";
     $("#random-ad").click(function () {
-        const randomAdIndex = Math.floor(Math.random() * count) + 1;
-        const newUrl = "http://localhost:8080/count?search=" + randomAdIndex;
-        document.location.href = newUrl;
+        document.location.href = "http://localhost:8080/count?search=" + randomAdId;
     });
 </script>
 </body>

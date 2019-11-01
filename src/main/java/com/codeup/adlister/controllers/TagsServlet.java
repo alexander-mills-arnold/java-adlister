@@ -28,6 +28,7 @@ public class TagsServlet extends HttpServlet {
                 }
             }
         }
+        request.setAttribute("tag", DaoFactory.getTagsDao().findById(tagId));
         request.setAttribute("ads", searchedAds);
         try {
             request.getRequestDispatcher("/WEB-INF/tags.jsp").forward(request, response);

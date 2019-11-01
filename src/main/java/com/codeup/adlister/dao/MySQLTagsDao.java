@@ -69,4 +69,17 @@ public class MySQLTagsDao implements Tags {
         }
 
     }
+
+    @Override
+    public Tag findById(long tagId) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM tags WHERE id = ? LIMIT 1");
+            stmt.setLong(1, tagId);
+            ResultSet rs = stmt.executeQuery();
+            return createCategories(rs).get(0);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving tag with id: " + tagId, e);
+        }
+    }
 }

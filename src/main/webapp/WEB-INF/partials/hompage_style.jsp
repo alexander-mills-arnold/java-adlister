@@ -1,4 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Overlock&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
 <style>
 
 
@@ -6,7 +7,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        padding: 0;
+        padding-top:1.5em;
         max-height: 100vh;
     }
     body{
@@ -17,6 +18,7 @@
         flex:none;
         align-items: flex-start !important;
         padding-bottom: 0 !important;
+
     }
     .navbar-brand{
         padding-left: 12em !important;
@@ -25,7 +27,7 @@
 .nav-link{
     padding-top: 0 !important;
     color:whitesmoke!important;
-    text-shadow: 1px 1px #1C1F2A !important;
+    text-shadow: 3px 2px #1C1F2A !important;
     font-size: 1em !important;
 }
 h1{
@@ -46,6 +48,7 @@ h1{
 }
 .navbar-nav{
     font-size: 2em !important;
+    font-family: 'Rock Salt', cursive !important;
 }
     p{
         margin-bottom:0 !important;
@@ -69,7 +72,7 @@ h1{
     .p > * {
         list-style: none;
         flex: 0 0 33% !important;
-        max-height: 59vh;
+        max-height: 58.5vh;
         overflow: auto;
         font-size:1.5em;
     color:whitesmoke;

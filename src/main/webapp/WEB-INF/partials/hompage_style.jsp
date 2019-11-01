@@ -27,7 +27,7 @@
 .nav-link{
     padding-top: 0 !important;
     color:whitesmoke!important;
-    text-shadow: 3px 2px #1C1F2A !important;
+    text-shadow:5px 2px #1C1F2A !important;
     font-size: 1em !important;
 }
 h1{

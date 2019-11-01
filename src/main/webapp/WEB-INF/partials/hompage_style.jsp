@@ -1,4 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Overlock&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
 <style>
 
 
@@ -6,13 +7,49 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        padding: 0;
+        padding-top:1.5em;
         max-height: 100vh;
     }
+    body{
+        background-color: #708090 !important;
+    }
+
+    .navbar{
+        flex:none;
+        align-items: flex-start !important;
+        padding-bottom: 0 !important;
+
+    }
+    .navbar-brand{
+        padding-left: 12em !important;
+        padding-bottom: 0 !important;
+    }
+.nav-link{
+    padding-top: 0 !important;
+    color:whitesmoke!important;
+    text-shadow:5px 2px #1C1F2A !important;
+    font-size: 1em !important;
+}
 h1{
     font-family: 'Overlock', cursive;
+        color:whitesmoke;
+;
+}
+.card{
+    border-radius:1em;
 }
 
+
+#header{
+    font-size:6em;
+    color:whitesmoke;
+    text-shadow: 5px 2px #1C1F2A;
+    margin-bottom: 0;
+}
+.navbar-nav{
+    font-size: 2em !important;
+    font-family: 'Rock Salt', cursive !important;
+}
     p{
         margin-bottom:0 !important;
         position: relative;
@@ -22,6 +59,8 @@ h1{
         flex: 0% !important;
         margin:0 !important;
         max-height: 100vh;
+        background-color: #708090 !important;
+        border-radius: .5em;
     }
     .p{
 
@@ -33,13 +72,21 @@ h1{
     .p > * {
         list-style: none;
         flex: 0 0 33% !important;
-        max-height: 74.5vh;
+        max-height: 58.5vh;
         overflow: auto;
+        font-size:1.5em;
+    color:whitesmoke;
     }
 
     #item{
-        padding:0 !important;
+        padding:.5em !important;
         position:relative;
         font-family: 'EB Garamond', serif;
+        background-color:#1C1F2A !important;
+        border-radius: 1em;
+        border-left-width: .5em;
+        border-right-width: .5em;
+        border-top-width: .5em;
+        border-bottom-width: .5em;
     }
 </style>

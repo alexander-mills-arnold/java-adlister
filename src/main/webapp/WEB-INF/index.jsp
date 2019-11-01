@@ -30,7 +30,7 @@
 
                             <div>
                                 <div class="col-md-12 card-title text-center">
-                                <h1>${heading.category}</h1>
+                                    <h1><a href="/categories?category=${heading.id}">${heading.category}</a></h1>
                                 </div>
                                 <div class="p text-center">
                                     <div>

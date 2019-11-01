@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface Tags {
     List<Tag> all();
+    List<Tag> getTagsByCategory(String tagCategory);
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
@@ -20,22 +21,37 @@ public class CreateAdServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+
+        List<Tag> communityTags = DaoFactory.getTagsDao().getTagsByCategory("community");
+        List<Tag> servicesTags = DaoFactory.getTagsDao().getTagsByCategory("services");
+        List<Tag> housingTags = DaoFactory.getTagsDao().getTagsByCategory("housing");
+        List<Tag> forSaleTags = DaoFactory.getTagsDao().getTagsByCategory("for sale");
+        List<Tag> jobsTags = DaoFactory.getTagsDao().getTagsByCategory("jobs");
+        request.setAttribute("communityTags", communityTags);
+        request.setAttribute("servicesTags", servicesTags);
+        request.setAttribute("housingTags", housingTags);
+        request.setAttribute("forSaleTags", forSaleTags);
+        request.setAttribute("jobsTags", jobsTags);
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
-        Tag tag = (Tag) request.getSession().getAttribute("tag");
-        Ad adDate = (Ad) request.getSession().getAttribute("ad");
+        String tag = request.getParameter("tag_id");
+        System.out.println("tag = " + tag);
+        long tagId = Long.parseLong(tag);
         Ad ad = new Ad(
             user.getId(),
-            tag.getId(),
+            tagId,
             request.getParameter("title"),
-            request.getParameter("description"),
-            adDate.getPosted_date()
+            request.getParameter("description")
         );
-        System.out.println(adDate.getPosted_date());
+        System.out.println(ad.getUserId());
+        System.out.println(ad.getDescription());
+        System.out.println(ad.getTitle());
+        System.out.println(ad.getPostDate());
+        System.out.println(ad.getTagId());
         DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
     }

@@ -17,7 +17,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1>Welcome to the Adlister!</h1>
+<%--                    <h1 id="header">ADLISTER</h1>--%>
                 </div>
             </div>
         </div>

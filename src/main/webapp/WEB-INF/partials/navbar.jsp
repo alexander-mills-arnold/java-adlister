@@ -1,31 +1,51 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Adlister</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
+<jsp:include page="/WEB-INF/partials/hompage_style.jsp" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Overlock&display=swap" rel="stylesheet">
+<nav class="navbar navbar-expand-md navbar-light">
+    <span class="navbar-text d-none d-md-block">Feeling Lucky!</span>
+    <a class="navbar-brand mx-md-auto mr-auto" href="/">
+        <h1 id="header">ADLISTER</h1>
+    </a>
+    <span class="navbar-text d-block mt"> <form action="/ads" method="post">
+                <input type="text" id="search" name="search">
+                <button id="search-btn">Search</button>
+            </form></span>
+    <button class="navbar-toggler ml-lg-0" type="button" data-toggle="collapse" data-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<nav class="navbar p-0 navbar-expand-md navbar-light">
+    <div class="collapse navbar-collapse px-3" id="navbarContent">
+        <ul class="navbar-nav mx-md-auto mx-0 w-50 align-items-start nav-fill">
             <c:if test="${sessionScope.user != null}">
-                <li><a href="/ads/create">Create an Ad</a></li>
-                <li><a href="/profile">View Profile</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ads/create">Create an Ad</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">View Profile</a>
+                </li>
             </c:if>
             <c:choose>
                 <c:when test="${sessionScope.user == null}">
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/register">Register Here</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
                 </c:when>
                 <c:otherwise>
-                    <li><a href="/logout">Logout</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    </li>
                 </c:otherwise>
             </c:choose>
-            <li>    <form action="/ads" method="post">
-                <input type="text" id="search" name="search">
-                <button id="search-btn">Search</button>
-            </form></li>
+            <li class="nav-item">
+                <a class="nav-link"  href="/ads">View All Ads</a>
+            </li>
         </ul>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+    </div>
 </nav>
 <script>
     const searchInput = document.getElementById("search");

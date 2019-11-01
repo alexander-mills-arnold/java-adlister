@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <%
     List<Ad> ads = (List<Ad>) request.getAttribute("ads");
     int count = ads.size();
@@ -18,7 +19,6 @@
 <body>
 <%--//========= DYNAMIC NAVIGATION ======//--%>
 <div class="container">
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <h1>Here Are all the ads!</h1>
     <button id="random-ad">Random</button>

@@ -1,3 +1,4 @@
+
 <style>
 
     body {
@@ -41,11 +42,15 @@
 
     }
 
+<<<<<<< HEAD
     .title{
         color:
     }
+=======
+>>>>>>> 7e252cfa190188edb251e983f7eb12c473d7083a
 
     img {
+
         width: 150px;
         height: 150px;
     }

@@ -5,7 +5,6 @@
     String failedUsername = (String) request.getSession().getAttribute("failedusername");
     String failedEmail = (String) request.getSession().getAttribute("failedemail");
     String errorCodes = (String) request.getSession().getAttribute("errorCodes");
-    System.out.println(errorCodes);
 %>
 <html>
 <head>

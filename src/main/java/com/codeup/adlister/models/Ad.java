@@ -14,9 +14,6 @@ public class Ad {
     private String title;
     private String description;
 
-
-    private Date posted_date;
-
     public Ad(long id, long userId, long tagId, String title, String description, java.sql.Date posted_date) {
         this.id = id;
         this.userId = userId;
@@ -26,20 +23,15 @@ public class Ad {
         this.postDate = posted_date;
     }
 
-    public Ad(long userId, String title, String description, Date date) {
+    public Ad(long userId, long tagId, String title, String description) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        java.sql.Date date = new Date(System.currentTimeMillis());
         this.userId = userId;
+        this.tagId = tagId;
         this.title = title;
         this.description = description;
         this.postDate = date;
     }
-
-    public Ad(long id, long id1, String title, String description, Date posted_date) {
-    }
-//    public Ad(long userId, long tag_id, String title, String description, java.util.Date posted_date) {
-//        this.userId = userId;
-//        this.title = title;
-//        this.description = description;
-//    }
 
     public long getId() {
         return id;
@@ -73,7 +65,7 @@ public class Ad {
         this.description = description;
     }
     public Date getPosted_date() {
-        return posted_date;
+        return postDate;
     }
 
     public Date setPosted_date(Date posted_date) {

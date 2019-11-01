@@ -29,7 +29,6 @@ public class MySQLTagsDao implements Tags {
         try {
             stmt = connection.prepareStatement("SELECT * FROM tags");
             ResultSet rs = stmt.executeQuery();
-            System.out.println(stmt);
             return createCategories(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all Categories.", e);
@@ -57,5 +56,30 @@ public class MySQLTagsDao implements Tags {
         return tags;
     }
 
+    @Override
+    public List<Tag> getTagsByCategory(String tagCategory) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM tags WHERE category_id IN (SELECT id FROM categories WHERE title = ?)");
+            stmt.setString(1, tagCategory);
+            ResultSet rs = stmt.executeQuery();
+            return createCategories(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all Categories.", e);
+        }
 
+    }
+
+    @Override
+    public Tag findById(long tagId) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM tags WHERE id = ? LIMIT 1");
+            stmt.setLong(1, tagId);
+            ResultSet rs = stmt.executeQuery();
+            return createCategories(rs).get(0);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving tag with id: " + tagId, e);
+        }
+    }
 }

@@ -27,7 +27,11 @@
                         <p class="card-text">${ad.description}</p>
                         <%--EDIT AND DELETE--%>
                         <div class="edit-delete">
+<<<<<<< HEAD
                             <button><a href="/edit"> Edit / Delete </a></button>
+=======
+                            <button><a href="/edit?selectedad=${ad.id}"> Edit / Delete </a></button>
+>>>>>>> 7e252cfa190188edb251e983f7eb12c473d7083a
                         </div>
                     </div>
                 </div>
@@ -38,23 +42,23 @@
 
 
 
-<%--//========= SCRIPTING   ===============//--%>
+<%--&lt;%&ndash;//========= SCRIPTING   ===============//&ndash;%&gt;--%>
 
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script>
+<%--<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>--%>
+<%--<script>--%>
 
-    $("button").on("click", function(){
-        $(this).remove();
-    });
-    $(".btn :button").live("click", function(){
-        $(this).remove();
-    });
+<%--    $("button").on("click", function(){--%>
+<%--        $(this).remove();--%>
+<%--    });--%>
+<%--    $(".btn :button").live("click", function(){--%>
+<%--        $(this).remove();--%>
+<%--    });--%>
 
-    function add() {
-        // $(".btn").append("<button> new one </button>");
-        $("<button> new one </button>").insertAfter(".btn");
-    };
-</script>
+<%--    function add() {--%>
+<%--        // $(".btn").append("<button> new one </button>");--%>
+<%--        $("<button> new one </button>").insertAfter(".btn");--%>
+<%--    };--%>
+<%--</script>--%>
 
 </body>
 </html>

@@ -54,7 +54,7 @@ public class MySQLCategoriesDao implements Categories {
         try {
             return new Category(
                     rs.getLong("id"),
-                    rs.getString("heading")
+                    rs.getString("heading").toUpperCase()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error extracting all Headings.", e);
@@ -64,7 +64,7 @@ public class MySQLCategoriesDao implements Categories {
         try {
             return new Category(
                     rs.getLong("id"),
-                    rs.getString("category"),
+                    rs.getString("category").toUpperCase(),
                     rs.getString("subcategory")
             );
         } catch (SQLException e) {

@@ -6,6 +6,7 @@ public class Category {
     private long id;
     private String subcategory;
     private String category;
+    private long subid;
 
     public Category(long id, String category, String subcategory) {
         this.id = id;
@@ -17,6 +18,13 @@ public class Category {
     public Category(long id, String category) {
         this.id = id;
         this.category = category;
+    }
+
+    public Category(long id, String category, String subcategory, long subid) {
+        this.id = id;
+        this.category = category;
+        this.subcategory = subcategory;
+        this.subid = subid;
     }
 
 
@@ -44,5 +52,11 @@ public class Category {
         this.subcategory = subcategory;
     }
 
+    public long getSubid() {
+        return subid;
+    }
 
+    public void setSubid(long subid) {
+        this.subid = subid;
+    }
 }

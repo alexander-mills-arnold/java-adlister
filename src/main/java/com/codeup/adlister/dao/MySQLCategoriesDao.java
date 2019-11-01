@@ -27,9 +27,8 @@ public class MySQLCategoriesDao implements Categories {
     public List<Category> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT categories.title as category, categories.id as id, tags.title as subcategory FROM categories JOIN tags ON tags.category_id = categories.id;");
+            stmt = connection.prepareStatement("SELECT categories.title as category, categories.id as id, tags.title as subcategory, tags.id as subid FROM categories JOIN tags ON tags.category_id = categories.id;");
             ResultSet rs = stmt.executeQuery();
-            System.out.println(rs);
             return createCategories(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error with categories joining subcategories.", e);
@@ -42,7 +41,6 @@ public class MySQLCategoriesDao implements Categories {
         try {
             stmt = connection.prepareStatement("SELECT categories.id as id,categories.title as heading FROM categories;");
             ResultSet rs = stmt.executeQuery();
-            System.out.println(rs);
             return createHeadings(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all Categories.", e);
@@ -65,7 +63,8 @@ public class MySQLCategoriesDao implements Categories {
             return new Category(
                     rs.getLong("id"),
                     rs.getString("category").toUpperCase(),
-                    rs.getString("subcategory")
+                    rs.getString("subcategory"),
+                    rs.getLong("subid")
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error extracting all Categories.", e);

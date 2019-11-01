@@ -42,12 +42,9 @@
 
     }
 
-<<<<<<< HEAD
     .title{
-        color:
+        /*color:*/
     }
-=======
->>>>>>> 7e252cfa190188edb251e983f7eb12c473d7083a
 
     img {
 

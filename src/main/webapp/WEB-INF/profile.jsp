@@ -27,11 +27,9 @@
                         <p class="card-text">${ad.description}</p>
                         <%--EDIT AND DELETE--%>
                         <div class="edit-delete">
-<<<<<<< HEAD
-                            <button><a href="/edit"> Edit / Delete </a></button>
-=======
+                            <h1> Hello howdy hey </h1>
+
                             <button><a href="/edit?selectedad=${ad.id}"> Edit / Delete </a></button>
->>>>>>> 7e252cfa190188edb251e983f7eb12c473d7083a
                         </div>
                     </div>
                 </div>

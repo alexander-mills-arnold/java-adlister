@@ -37,7 +37,7 @@
                                 <c:forEach var="category" items="${categories}">
                                     <c:if test="${category.category == heading.category}">
 
-                                            <p>${category.subcategory}</p>
+                                            <a href="/tags?tag=${category.id}">${category.subcategory}</a>
 
                                     </c:if>
                                 </c:forEach>

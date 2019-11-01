@@ -9,12 +9,10 @@ public class Ad {
     private java.sql.Date postDate;
 
 
-    private long tagId;
+
+    public long tagId;
     private String title;
     private String description;
-
-
-    private Date posted_date;
 
     public Ad(long id, long userId, long tagId, String title, String description, java.sql.Date posted_date) {
         this.id = id;
@@ -25,19 +23,15 @@ public class Ad {
         this.postDate = posted_date;
     }
 
-    public Ad(long userId, String title, String description) {
+    public Ad(long userId, long tagId, String title, String description) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         java.sql.Date date = new Date(System.currentTimeMillis());
         this.userId = userId;
+        this.tagId = tagId;
         this.title = title;
         this.description = description;
         this.postDate = date;
     }
-//    public Ad(long userId, long tag_id, String title, String description, java.util.Date posted_date) {
-//        this.userId = userId;
-//        this.title = title;
-//        this.description = description;
-//    }
 
     public long getId() {
         return id;
@@ -71,19 +65,25 @@ public class Ad {
         this.description = description;
     }
     public Date getPosted_date() {
-        return posted_date;
+        return postDate;
     }
 
-    public void setPosted_date(Date posted_date) {
-        this.posted_date = posted_date;
+    public Date setPosted_date(Date posted_date) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        java.sql.Date date = new Date(System.currentTimeMillis());
+        return date;
     }
 //    public long getTagId() {
 //        return tagId;
 //    }
+    public long getTagId() {
+        return tagId;
+    }
 
-//    public void setTagId(long tagId) {
-//        this.tagId = tagId;
-//    }
+    public void setTagId(long tagId) {
+            Tag id = new Tag(tagId);
+            this.id = id.getId();
+    }
 
     public java.sql.Date getPostDate() {
         return postDate;
